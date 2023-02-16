@@ -1,0 +1,124 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: roboto-flex;
+  src: url(../fonts/RobotoFlex.ttf) format('truetype-variations');
+}
+
+html, body {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+form label {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+article h1 {
+  position: absolute;
+  top: 25%;
+  margin: 0;
+  text-align: center;
+  font-family: roboto-flex;
+  text-transform: uppercase;
+  font-size: 5em;
+  transition: 2s;
+  font-stretch: 50%;
+  font-variation-settings: 'wght' 225, 'slnt' 0, 'opsz' 16, 'CASL' 0.15;
+}
+
+section {
+  display: grid;
+  place-content: center;
+  height: 100dvh;
+  perspective: 20em;
+}
+
+section ul {
+  list-style-type: none;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-5deg);
+  transition: 2s;
+  transform-origin: bottom right;
+}
+
+form:has(label:first-of-type input:checked) ~ section ul {
+  transform: rotateX(90deg) rotateZ(90deg) rotate3d(1, 1.5, 2.5, 180deg);
+}
+
+form:has(label:last-of-type input:checked) ~ article h1 {
+  font-size: 20em;
+  font-variation-settings: 'wght' 900, 'slnt' -12, 'opsz' 248, 'CASL' 0.86;
+  font-stretch: 193%;
+}
+
+section ul li {
+  position: absolute;
+  display: grid;
+  transform-style: preserve-3d;
+  place-content: center;
+  border: 1px solid #000;
+  opacity: 0.5;
+  width: 10em;
+  height: 10em;
+}
+
+/* Front */
+section ul li:nth-child(1) {
+  transform: rotateY(0deg) translateZ(5em);
+}
+
+/* Back */
+section ul li:nth-child(2) {
+  transform: rotateY(180deg) translateZ(5em);
+}
+
+/* Right */
+section ul li:nth-child(3) {
+  transform: rotateY(90deg) translateZ(5em);
+}
+
+/* Left */
+section ul li:nth-child(4) {
+  transform: rotateY(-90deg) translateZ(5em);
+}
+
+/* Top */
+section ul li:nth-child(5) {
+  transform: rotateX(90deg) translateZ(5em);
+}
+
+/* Bottom */
+section ul li:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(5em);
+}
+
+section ul li:nth-child(1),
+section ul li:nth-child(2) {
+  background-color: green;
+}
+
+section ul li:nth-child(3),
+section ul li:nth-child(4) {
+  background-color: red;
+}
+
+section ul li:nth-child(5),
+section ul li:nth-child(6) {
+  background-color: blue;
+}
+
