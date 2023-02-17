@@ -1,12 +1,15 @@
+/* Resets */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+/* Fonts */
 @font-face {
   font-family: roboto-flex;
   src: url(../fonts/RobotoFlex.ttf) format('truetype-variations');
 }
 
+/* Global */
 html, body {
   font-family: sans-serif;
 }
@@ -16,6 +19,7 @@ body {
   padding: 0;
 }
 
+/* Formulier */
 form {
   display: flex;
   flex-direction: column;
@@ -27,6 +31,17 @@ form label {
   margin-bottom: 1em;
 }
 
+form:has(label:first-of-type input:checked) ~ section ul {
+  transform: rotateX(90deg) rotateZ(90deg) rotate3d(1, 1.5, 2.5, 180deg);
+}
+
+form:has(label:last-of-type input:checked) ~ article h1 {
+  font-size: 20em;
+  font-variation-settings: 'wght' 900, 'slnt' -12, 'opsz' 248, 'CASL' 0.86;
+  font-stretch: 193%;
+}
+
+/* Text */
 article h1 {
   position: absolute;
   top: 25%;
@@ -40,6 +55,7 @@ article h1 {
   font-variation-settings: 'wght' 225, 'slnt' 0, 'opsz' 16, 'CASL' 0.15;
 }
 
+/* Kubus */
 section {
   display: grid;
   place-content: center;
@@ -54,16 +70,6 @@ section ul {
   transform: rotateX(-5deg);
   transition: 2s;
   transform-origin: bottom right;
-}
-
-form:has(label:first-of-type input:checked) ~ section ul {
-  transform: rotateX(90deg) rotateZ(90deg) rotate3d(1, 1.5, 2.5, 180deg);
-}
-
-form:has(label:last-of-type input:checked) ~ article h1 {
-  font-size: 20em;
-  font-variation-settings: 'wght' 900, 'slnt' -12, 'opsz' 248, 'CASL' 0.86;
-  font-stretch: 193%;
 }
 
 section ul li {
