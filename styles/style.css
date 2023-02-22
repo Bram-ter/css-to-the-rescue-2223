@@ -3,6 +3,12 @@
   box-sizing: border-box;
 }
 
+:root {
+  --red: hsl(0, 98%, 31%);
+  --night: hsl(240, 96%, 18%);
+  --day: #1fa5e7;
+}
+
 /* Fonts */
 @font-face {
   font-family: roboto-flex;
@@ -25,163 +31,52 @@ ul {
   margin: 0;
 }
 
-/* Formulier */
-form {
-  display: flex;
-  height: 50vh;
-  flex-direction: column;
-  z-index: 9999;
+main {
+  position: relative;
+  min-height: 100dvh;
 }
 
-form label {
+main div {
+  height: 25em;
+  width: 100%;
+  background-color: red;
+}
+
+/* Formulier */
+main form {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  place-content: center;
+  width: 40%;
+  min-width: 10em;
+  height: 5em;
+  background-color: var(--red);
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+main form label {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-form:has(label:first-of-type input:checked) ~ section {
-  perspective: 12em;
+main form:has(label:first-of-type input:checked) ~ div {
+  background-color: var(--day);
 }
 
-form:has(label:first-of-type input:checked) ~ section ul {
-  transform: rotateX(90deg) rotateZ(90deg) rotate3d(1, 1.5, 2.5, 180deg);
+main form:has(label:nth-of-type(2) input:checked) ~ div {
+  background-color: var(--night);
 }
 
-form:has(label:last-of-type input:checked) ~ article h1 {
-  font-size: 20em;
-  font-variation-settings: 'wght' 900, 'slnt' -12, 'opsz' 248, 'CASL' 0.86;
-  font-stretch: 193%;
+main form:has(label:nth-of-type(3) input:checked) ~ div {
+  background-color: yellow;
 }
 
-/* Text */
-article h1 {
-  margin: 0;
-  font-family: roboto-flex;
-  text-transform: uppercase;
-  font-size: 5em;
-  transition: 2s;
-  font-stretch: 50%;
-  font-variation-settings: 'wght' 100, 'slnt' 0, 'opsz' 16, 'CASL' 0.15;
-}
-
-/* Kubus */
-section {
-  display: grid;
-  place-content: center;
-  height: 30dvh;
-  transition: 2s;
-  perspective: 20em;
-  transform-style: preserve-3d;
-}
-
-section ul {
-  position: relative;
-  transform-style: preserve-3d;
-  transform: rotateX(-5deg);
-  transition: 2s;
-  transform-origin: bottom right;
-}
-
-section ul li {
-  position: absolute;
-  display: grid;
-  place-content: center;
-  border: 1px solid #000;
-  opacity: 0.5;
-  width: 10em;
-  height: 10em;
-}
-
-/* Front */
-section ul li:nth-child(1) {
-  transform: rotateY(0deg) translateZ(5em);
-}
-
-/* Back */
-section ul li:nth-child(2) {
-  transform: rotateY(180deg) translateZ(5em);
-}
-
-/* Right */
-section ul li:nth-child(3) {
-  transform: rotateY(90deg) translateZ(5em);
-}
-
-/* Left */
-section ul li:nth-child(4) {
-  transform: rotateY(-90deg) translateZ(5em);
-}
-
-/* Top */
-section ul li:nth-child(5) {
-  transform: rotateX(90deg) translateZ(5em);
-}
-
-/* Bottom */
-section ul li:nth-child(6) {
-  transform: rotateX(-90deg) translateZ(5em);
-}
-
-section ul li:nth-child(1),
-section ul li:nth-child(2) {
-  background-color: hsl(120, 100%, 25%);
-}
-
-section ul li:nth-child(3),
-section ul li:nth-child(4) {
-  background-color: hsl(0, 100%, 50%);
-}
-
-section ul li:nth-child(5),
-section ul li:nth-child(6) {
-  background-color: hsl(240, 100%, 50%);
-}
-
-/* Colorful ul */
-
-body > ul {
-  display: grid;
-  place-content: end center;
-  position: relative;
-  --length: 20;
-}
-
-body > ul li:nth-of-type(1) { --index: 1; }
-body > ul li:nth-of-type(2) { --index: 2; }
-body > ul li:nth-of-type(3) { --index: 3; }
-body > ul li:nth-of-type(4) { --index: 4; }
-body > ul li:nth-of-type(5) { --index: 5; }
-body > ul li:nth-of-type(6) { --index: 6; }
-body > ul li:nth-of-type(7) { --index: 7; }
-body > ul li:nth-of-type(8) { --index: 8; }
-body > ul li:nth-of-type(9) { --index: 9; }
-body > ul li:nth-of-type(10) { --index: 10; }
-body > ul li:nth-of-type(11) { --index: 11; }
-body > ul li:nth-of-type(12) { --index: 12; }
-body > ul li:nth-of-type(13) { --index: 13; }
-body > ul li:nth-of-type(14) { --index: 14; }
-body > ul li:nth-of-type(15) { --index: 15; }
-body > ul li:nth-of-type(16) { --index: 16; }
-body > ul li:nth-of-type(17) { --index: 17; }
-body > ul li:nth-of-type(18) { --index: 18; }
-body > ul li:nth-of-type(19) { --index: 19; }
-body > ul li:nth-of-type(20) { --index: 20; }
-
-body > ul li {
-  border-radius: 100%;
-  position: absolute;
-  left: 40%;
-  transform: 
-    rotate( calc(360deg / var(--length) * var(--index)))
-    translate( 
-      calc(30vw / var(--length) * var(--index)), 
-      calc(-1vh / var(--length) * var(--index))
-    )
-  ;
-  width: 4em;
-  height: 4em;
-  background-color: hsl(
-    calc(150 / var(--length) * var(--index)), 
-    100%, 
-    50%
-  );
+main form:has(label:last-of-type input:checked) ~ div {
+  background-color: purple;
 }
