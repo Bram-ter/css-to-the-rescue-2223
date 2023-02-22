@@ -5,8 +5,15 @@
 
 :root {
   --red: hsl(0, 98%, 31%);
-  --night: hsl(240, 96%, 18%);
-  --day: #1fa5e7;
+  --night: hsl(218, 100%, 25%);
+  --night2: hsl(214, 100%, 8%);
+  --day: hsl(200, 100%, 67%);
+  --day2: hsl(200, 80%, 46%);
+  --green: hsl(118, 85%, 25%);
+  --night-grass: hsl(118, 92%, 19%);
+  --orange: hsl(41, 100%, 74%);
+  --wood: hsl(29, 100%, 20%);
+  --dark-wood: hsl(31, 100%, 13%);
 }
 
 /* Fonts */
@@ -34,12 +41,23 @@ ul {
 main {
   position: relative;
   min-height: 100dvh;
+  background-color: var(--green);
 }
 
-main div {
+main > div:first-of-type {
   height: 25em;
   width: 100%;
-  background-color: red;
+}
+
+main > div:last-of-type {
+  height: 1em;
+  width: 100%;
+  background-color: var(--dark-wood);
+  background-image: radial-gradient(
+    var(--wood) 30%,
+    transparent 24%
+  );
+  background-size: 1.75em 1.75em;
 }
 
 /* Formulier */
@@ -65,18 +83,29 @@ main form label {
   margin-bottom: 1em;
 }
 
-main form:has(label:first-of-type input:checked) ~ div {
-  background-color: var(--day);
+main form:has(label:first-of-type input:checked) ~ div:first-of-type {
+  background-image: linear-gradient(  
+    var(--day2),
+    var(--day)
+  );
 }
 
-main form:has(label:nth-of-type(2) input:checked) ~ div {
-  background-color: var(--night);
+main form:has(label:nth-of-type(2) input:checked) ~ div:first-of-type {
+  background-image: linear-gradient(  
+  var(--night),
+  var(--night2)
+  );
+  background-size: 100% 200%;
 }
 
-main form:has(label:nth-of-type(3) input:checked) ~ div {
-  background-color: yellow;
+main:has(label:nth-of-type(2) input:checked) {
+  background-color: var(--night-grass);
 }
 
-main form:has(label:last-of-type input:checked) ~ div {
+main form:has(label:nth-of-type(3) input:checked) ~ div:first-of-type {
+  
+}
+
+main form:has(label:last-of-type input:checked) ~ div:first-of-type {
   background-color: purple;
 }
