@@ -41,6 +41,7 @@ ul {
 
 main {
   position: relative;
+  overflow-x: hidden;
   min-height: 100dvh;
   background-color: var(--green);
 }
@@ -52,7 +53,6 @@ main > div:first-of-type {
   background-color: var(--day);
 }
 
-/* Stars */
 main div ul {
   position: absolute;
   display: none;
@@ -60,58 +60,84 @@ main div ul {
   height: 100%;
 }
 
+/* ------------ Clouds ------------ */
+
 main div ul:first-of-type li {
-  position: relative;
+  position: absolute;
   margin: 2em;
-  /* transform: translateX(-5em); */
   width: 6em;
   height: 2.8em;
   background-color: #fff;
-  box-shadow: 5px 5px rgba(0,0,0,0.2);
   border-radius: 100px;
-  /* background-image: radial-gradient(
-    circle at 4.6em 1.5em,
-    white 30%,
-    transparent 0
-  ),
-  radial-gradient(
-    circle at 2.7em 1.7em,
-    white 20%,
-    transparent 0
-  ),
-  radial-gradient(
-    circle at 1.7em 2em,
-    white 12.5%,
-    transparent 0
-  ); */
+  animation-duration: calc(var(--timeIndex) + 2s);
+  animation-iteration-count: infinite;
+  margin-top: calc(var(--height) * 4.4);
+  animation-delay: calc(var(--timeIndex) + 2s);
+}
+
+main div ul:first-of-type li:nth-of-type(1n) {
+  animation-name: fromLeft;
+  left: 0%;
+}
+
+main div ul:first-of-type li:nth-of-type(2n) {
+  animation-name: fromRight;
+  right: 0%;
 }
 
 main div ul:first-of-type li:before,
 main div ul:first-of-type li:after {
   content: '';
-  position: absolute;
+  display: inline-block;
   background-color: inherit;
   border-radius: inherit;
-  width: 4em;
-  aspect-ratio: 1/1;
 }
 
 main div ul:first-of-type li:before {
-  top: -.6em;
-  left: 0.9em;
+  transform: translate(.7em, -1.75em);
   width: 2em;
-  /* height: 2em; */
   aspect-ratio: 1/1;
   border-radius: 100%;
 }
 
 main div ul:first-of-type li:after {
-  top: -1.2em;
-  right: .5em;
+  transform: translate(.1em, -1.5em);
   width: 3.2em;
-  /* height: 3.2em; */
   aspect-ratio: 1/1;
   border-radius: 100%;
+}
+
+main div ul:first-of-type li:nth-of-type(1) { 
+  --height: 1vh;
+  --timeIndex: 1s; 
+}
+main div ul:first-of-type li:nth-of-type(2) { 
+  --height: 2vh;
+  --timeIndex: 2s; 
+}
+main div ul:first-of-type li:nth-of-type(3) { 
+  --height: 3vh;
+  --timeIndex: 3s; 
+}
+main div ul:first-of-type li:nth-of-type(4) { 
+  --height: 4vh;
+  --timeIndex: 4s; 
+}
+main div ul:first-of-type li:nth-of-type(5) { 
+  --height: 5vh;
+  --timeIndex: 5s; 
+}
+main div ul:first-of-type li:nth-of-type(6) { 
+  --height: 6vh;
+  --timeIndex: 6s; 
+}
+main div ul:first-of-type li:nth-of-type(7) { 
+  --height: 7vh;
+  --timeIndex: 7s; 
+}
+main div ul:first-of-type li:nth-of-type(8) { 
+  --height: 8vh;
+  --timeIndex: 8s; 
 }
 
 /* Bedieningspaneel */
@@ -310,5 +336,23 @@ main form:has(label:last-of-type input:checked) ~ div:first-of-type {
   }
   100% {
     opacity: calc( var(--index) * 3.14 / var(--length));
+  }
+}
+
+@keyframes fromLeft {
+  0% {
+    left: -5%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+@keyframes fromRight {
+  0% {
+    left: 150%;
+  }
+  100% {
+    left: -50%;
   }
 }
