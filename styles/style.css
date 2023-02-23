@@ -8,10 +8,11 @@
   --night: hsl(218, 100%, 25%);
   --night2: hsl(214, 100%, 8%);
   --day: hsl(200, 100%, 67%);
-  --day2: hsl(200, 80%, 46%);
+  --day2: hsl(200, 92%, 43%);
   --green: hsl(118, 85%, 25%);
   --night-grass: hsl(118, 92%, 19%);
   --orange: hsl(41, 100%, 74%);
+  --star: hsl(61, 83%, 48%);
   --wood: hsl(29, 100%, 20%);
   --dark-wood: hsl(31, 100%, 13%);
 }
@@ -45,133 +46,72 @@ main {
 }
 
 main > div:first-of-type {
+  position: relative;
   height: 25em;
   width: 100%;
   background-color: var(--day);
 }
 
+/* Stars */
 main div ul {
+  position: absolute;
   display: none;
-  position: relative;
   width: 100%;
   height: 100%;
 }
 
-main div ul li {
-  --length: 10;
-  width: .5em;
-  height: .5em;
-  background-color: hsl(61, 83%, 48%);
-  animation-name: flickering;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
+main div ul:first-of-type li {
+  position: relative;
+  margin: 2em;
+  /* transform: translateX(-5em); */
+  width: 6em;
+  height: 2.8em;
+  background-color: #fff;
+  box-shadow: 5px 5px rgba(0,0,0,0.2);
+  border-radius: 100px;
+  /* background-image: radial-gradient(
+    circle at 4.6em 1.5em,
+    white 30%,
+    transparent 0
+  ),
+  radial-gradient(
+    circle at 2.7em 1.7em,
+    white 20%,
+    transparent 0
+  ),
+  radial-gradient(
+    circle at 1.7em 2em,
+    white 12.5%,
+    transparent 0
+  ); */
 }
 
-main div ul li:nth-of-type(1) { 
-  animation-delay: 0.3s;
-  transform: translate( 
-    calc(13em * var(--index) / 3.7), 
-    calc(13em * var(--index) / 6.4) 
-  );
-  /* top:  calc(13em * var(--index) / 5);
-  left:  calc(13em * var(--index) / 5); */
-  --index: 1; 
-}
-main div ul li:nth-of-type(2) { 
-  animation-delay: 0.5s;
-  transform: translate( 
-    calc(13em * var(--index) / 2.8), 
-    calc(13em * var(--index) / 7.1) 
-  );
-  --index: 2; 
-}
-main div ul li:nth-of-type(3) { 
-  animation-delay: 0.7s;
-  transform: translate( 
-    calc(13em * var(--index) / 1.2), 
-    calc(13em * var(--index) / 6.3) 
-  );
-  --index: 3; 
-}
-main div ul li:nth-of-type(4) { 
-  animation-delay: 1.2s;
-  transform: translate( 
-    calc(13em * var(--index) / 2.7), 
-    calc(13em * var(--index) / 9.3) 
-  );
-  --index: 4; 
-}
-main div ul li:nth-of-type(5) { 
-  animation-delay: -1.2s;
-  transform: translate( 
-    calc(13em * var(--index) / 4.9), 
-    calc(13em * var(--index) / 5.3) 
-  );
-  --index: 5; 
-}
-main div ul li:nth-of-type(6) { 
-  animation-delay: -0.8s;
-  transform: translate( 
-    calc(13em * var(--index) / 2.8), 
-    calc(13em * var(--index) / 7.6) 
-  );
-  --index: 6; 
-}
-main div ul li:nth-of-type(7) { 
-  animation-delay: -0.5s;
-  transform: translate( 
-    calc(13em * var(--index) / 2.6), 
-    calc(13em * var(--index) / 5.4) 
-  );
-  --index: 7; 
-}
-main div ul li:nth-of-type(8) { 
-  animation-delay: -0.4s;
-  transform: translate( 
-    calc(13em * var(--index) / 2.8), 
-    calc(13em * var(--index) / 9.4) 
-  );
-  --index: 8; 
-}
-main div ul li:nth-of-type(9) { 
-  animation-delay: -0.3s;
-  transform: translate( 
-    calc(13em * var(--index) / 2.4), 
-    calc(13em * var(--index) / 14) 
-  );
-  --index: 9; 
-}
-main div ul li:nth-of-type(10) { 
-  animation-delay: -0.1s;
-  transform: translate( 
-    calc(13em * var(--index) / 18.2), 
-    calc(13em * var(--index) / 9.3) 
-  );
-  --index: 10; 
+main div ul:first-of-type li:before,
+main div ul:first-of-type li:after {
+  content: '';
+  position: absolute;
+  background-color: inherit;
+  border-radius: inherit;
+  width: 4em;
+  aspect-ratio: 1/1;
 }
 
-@keyframes flickering {
-  0% {
-    opacity: calc( var(--index) * 3.14 / var(--length));
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: calc( var(--index) * 3.14 / var(--length));
-  }
+main div ul:first-of-type li:before {
+  top: -.6em;
+  left: 0.9em;
+  width: 2em;
+  /* height: 2em; */
+  aspect-ratio: 1/1;
+  border-radius: 100%;
 }
 
-/* Rails */
-main div:last-of-type {
-  height: 1em;
-  width: 100%;
-  background-color: var(--dark-wood);
-  background-image: radial-gradient(
-    var(--wood) 30%,
-    transparent 24%
-  );
-  background-size: 1.75em 1.75em;
+main div ul:first-of-type li:after {
+  top: -1.2em;
+  right: .5em;
+  width: 3.2em;
+  /* height: 3.2em; */
+  aspect-ratio: 1/1;
+  border-radius: 100%;
 }
 
 /* Bedieningspaneel */
@@ -197,6 +137,137 @@ main form label {
   margin-bottom: 1em;
 }
 
+/* ------------ Rails ------------ */
+
+main div:last-of-type {
+  height: 1em;
+  width: 100%;
+  background-color: var(--dark-wood);
+  background-image: radial-gradient(
+    var(--wood) 30%,
+    transparent 24%
+  );
+  background-size: 1.75em 1.75em;
+}
+
+/* ------------ Stars ------------ */
+
+main div ul:last-of-type li {
+  --length: 10;
+  width: .75em;
+  height: .75em;
+  background-color: var(--star);
+  animation-name: flickering;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  background-image: radial-gradient(
+    at top right,
+    var(--night) 30%,
+    transparent 1%
+  ),
+  radial-gradient(
+    at top left,
+    var(--night) 30%,
+    transparent 1%
+  ),
+  radial-gradient(
+    at bottom left,
+    var(--night) 30%,
+    transparent 1%
+  ),
+  radial-gradient(
+    at bottom right,
+    var(--night) 30%,
+    transparent 1%
+  );
+  background-size: 100%, 100%;
+}
+
+main div ul:last-of-type  li:nth-of-type(1) { 
+  animation-delay: 0.3s;
+  transform: translate( 
+    calc(13em * var(--index) / 3.7), 
+    calc(13em * var(--index) / 6.4) 
+  );
+  /* top:  calc(13em * var(--index) / 5);
+  left:  calc(13em * var(--index) / 5); */
+  --index: 1; 
+}
+main div ul:last-of-type  li:nth-of-type(2) { 
+  transform: translate( 
+    calc(13em * var(--index) / 2.8), 
+    calc(13em * var(--index) / 7.1) 
+  );
+  --index: 2; 
+  animation-delay: 0.5s;
+}
+main div ul:last-of-type  li:nth-of-type(3) { 
+  transform: translate( 
+    calc(13em * var(--index) / 1.2), 
+    calc(13em * var(--index) / 6.3) 
+  );
+  --index: 3; 
+  animation-delay: 0.7s;
+}
+main div ul:last-of-type  li:nth-of-type(4) { 
+  transform: translate( 
+    calc(13em * var(--index) / 2.7), 
+    calc(13em * var(--index) / 9.3) 
+  );
+  --index: 4; 
+  animation-delay: 1.2s;
+}
+main div ul:last-of-type  li:nth-of-type(5) { 
+  transform: translate( 
+    calc(13em * var(--index) / 4.9), 
+    calc(13em * var(--index) / 5.3) 
+  );
+  --index: 5; 
+  animation-delay: -1.2s;
+}
+main div ul:last-of-type  li:nth-of-type(6) { 
+  transform: translate( 
+    calc(13em * var(--index) / 2.8), 
+    calc(13em * var(--index) / 7.6) 
+  );
+  --index: 6; 
+  animation-delay: -0.8s;
+}
+main div ul:last-of-type  li:nth-of-type(7) { 
+  transform: translate( 
+    calc(13em * var(--index) / 2.6), 
+    calc(13em * var(--index) / 5.4) 
+  );
+  --index: 7; 
+  animation-delay: -0.5s;
+}
+main div ul:last-of-type  li:nth-of-type(8) { 
+  transform: translate( 
+    calc(13em * var(--index) / 2.8), 
+    calc(13em * var(--index) / 9.4) 
+  );
+  --index: 8; 
+  animation-delay: -0.4s;
+}
+main div ul:last-of-type  li:nth-of-type(9) { 
+  transform: translate( 
+    calc(13em * var(--index) / 2.4), 
+    calc(13em * var(--index) / 14) 
+  );
+  --index: 9; 
+  animation-delay: -0.3s;
+}
+main div ul:last-of-type  li:nth-of-type(10) { 
+  transform: translate( 
+    calc(13em * var(--index) / 18.2), 
+    calc(13em * var(--index) / 9.3) 
+  );
+  --index: 10; 
+  animation-delay: -0.7s;
+}
+
+/* ------------ Button stuff ------------ */
+
 main form:has(label:first-of-type input:checked) ~ div:first-of-type {
   background-image: linear-gradient(  
     var(--day2),
@@ -216,10 +287,28 @@ main:has(label:nth-of-type(2) input:checked) {
   background-color: var(--night-grass);
 }
 
-main form:has(label:nth-of-type(2) input:checked) ~ div:first-of-type ul {
+main form:has(label:nth-of-type(1) input:checked) ~ div:first-of-type ul:nth-of-type(1) {
+  display: block;
+}
+
+main form:has(label:nth-of-type(2) input:checked) ~ div:first-of-type ul:nth-of-type(2) {
   display: block;
 }
 
 main form:has(label:last-of-type input:checked) ~ div:first-of-type {
   background-color: purple;
+}
+
+/* ------------ Keyframes ------------ */
+
+@keyframes flickering {
+  0% {
+    opacity: calc( var(--index) * 3.14 / var(--length));
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: calc( var(--index) * 3.14 / var(--length));
+  }
 }
