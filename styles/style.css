@@ -47,9 +47,123 @@ main {
 main > div:first-of-type {
   height: 25em;
   width: 100%;
+  background-color: var(--day);
 }
 
-main > div:last-of-type {
+main div ul {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+main div ul li {
+  --length: 10;
+  width: .5em;
+  height: .5em;
+  background-color: hsl(61, 83%, 48%);
+  animation-name: flickering;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+main div ul li:nth-of-type(1) { 
+  animation-delay: 0.3s;
+  transform: translate( 
+    calc(13em * var(--index) / 3.7), 
+    calc(13em * var(--index) / 6.4) 
+  );
+  /* top:  calc(13em * var(--index) / 5);
+  left:  calc(13em * var(--index) / 5); */
+  --index: 1; 
+}
+main div ul li:nth-of-type(2) { 
+  animation-delay: 0.5s;
+  transform: translate( 
+    calc(13em * var(--index) / 2.8), 
+    calc(13em * var(--index) / 7.1) 
+  );
+  --index: 2; 
+}
+main div ul li:nth-of-type(3) { 
+  animation-delay: 0.7s;
+  transform: translate( 
+    calc(13em * var(--index) / 1.2), 
+    calc(13em * var(--index) / 6.3) 
+  );
+  --index: 3; 
+}
+main div ul li:nth-of-type(4) { 
+  animation-delay: 1.2s;
+  transform: translate( 
+    calc(13em * var(--index) / 2.7), 
+    calc(13em * var(--index) / 9.3) 
+  );
+  --index: 4; 
+}
+main div ul li:nth-of-type(5) { 
+  animation-delay: -1.2s;
+  transform: translate( 
+    calc(13em * var(--index) / 4.9), 
+    calc(13em * var(--index) / 5.3) 
+  );
+  --index: 5; 
+}
+main div ul li:nth-of-type(6) { 
+  animation-delay: -0.8s;
+  transform: translate( 
+    calc(13em * var(--index) / 2.8), 
+    calc(13em * var(--index) / 7.6) 
+  );
+  --index: 6; 
+}
+main div ul li:nth-of-type(7) { 
+  animation-delay: -0.5s;
+  transform: translate( 
+    calc(13em * var(--index) / 2.6), 
+    calc(13em * var(--index) / 5.4) 
+  );
+  --index: 7; 
+}
+main div ul li:nth-of-type(8) { 
+  animation-delay: -0.4s;
+  transform: translate( 
+    calc(13em * var(--index) / 2.8), 
+    calc(13em * var(--index) / 9.4) 
+  );
+  --index: 8; 
+}
+main div ul li:nth-of-type(9) { 
+  animation-delay: -0.3s;
+  transform: translate( 
+    calc(13em * var(--index) / 2.4), 
+    calc(13em * var(--index) / 14) 
+  );
+  --index: 9; 
+}
+main div ul li:nth-of-type(10) { 
+  animation-delay: -0.1s;
+  transform: translate( 
+    calc(13em * var(--index) / 18.2), 
+    calc(13em * var(--index) / 9.3) 
+  );
+  --index: 10; 
+}
+
+@keyframes flickering {
+  0% {
+    opacity: calc( var(--index) * 3.14 / var(--length));
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: calc( var(--index) * 3.14 / var(--length));
+  }
+}
+
+/* Rails */
+main div:last-of-type {
   height: 1em;
   width: 100%;
   background-color: var(--dark-wood);
@@ -60,7 +174,7 @@ main > div:last-of-type {
   background-size: 1.75em 1.75em;
 }
 
-/* Formulier */
+/* Bedieningspaneel */
 main form {
   position: absolute;
   display: flex;
@@ -102,8 +216,8 @@ main:has(label:nth-of-type(2) input:checked) {
   background-color: var(--night-grass);
 }
 
-main form:has(label:nth-of-type(3) input:checked) ~ div:first-of-type {
-  
+main form:has(label:nth-of-type(2) input:checked) ~ div:first-of-type ul {
+  display: block;
 }
 
 main form:has(label:last-of-type input:checked) ~ div:first-of-type {
