@@ -40,328 +40,129 @@ ul {
 }
 
 main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) ;
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
   position: relative;
   overflow-x: hidden;
-  min-height: 100dvh;
+  min-height: 85dvh;
+}
+
+footer {
+  width: 100%;
+  height: 15dvh;
   background-color: var(--green);
 }
 
-main > div:first-of-type {
+main div {
   position: relative;
-  height: 25em;
-  width: 100%;
-  background-color: var(--day);
-}
-
-main div ul {
-  position: absolute;
-  display: none;
-  width: 100%;
-  height: 100%;
-}
-
-/* ------------ Clouds ------------ */
-
-main div ul:first-of-type li {
-  position: absolute;
-  margin: 2em;
-  width: 6em;
-  height: 2.8em;
-  background-color: #fff;
-  border-radius: 100px;
-  animation-duration: calc(var(--timeIndex) + 30s);
-  animation-iteration-count: infinite;
-  margin-top: calc(var(--height) * 7);
-  animation-timing-function: cubic-bezier(calc(var(--index) / 3), calc(var(--index) / 8), var(--index), calc(var(--index) / 11));
-  animation-delay: calc(var(--timeIndex) + 3s);
-}
-
-main div ul:first-of-type li:nth-of-type(1n) {
-  animation-name: fromLeft;
-  left: -20em;
-}
-
-main div ul:first-of-type li:nth-of-type(2n) {
-  animation-name: fromRight;
-  right: -20em;
-}
-
-main div ul:first-of-type li:before,
-main div ul:first-of-type li:after {
-  content: '';
-  display: inline-block;
-  background-color: inherit;
-  border-radius: inherit;
-}
-
-main div ul:first-of-type li:before {
-  transform: translate(.7em, -1.75em);
-  width: 2em;
-  aspect-ratio: 1/1;
-  border-radius: 100%;
-}
-
-main div ul:first-of-type li:after {
-  transform: translate(.1em, -1.5em);
-  width: 3.2em;
-  aspect-ratio: 1/1;
-  border-radius: 100%;
-}
-
-main div ul:first-of-type li:nth-of-type(1) {
-  --index: 1; 
-  --height: 1vh;
-  --timeIndex: 1s; 
-}
-main div ul:first-of-type li:nth-of-type(2) {
-  --index: 2;  
-  --height: 2vh;
-  --timeIndex: 2s; 
-}
-main div ul:first-of-type li:nth-of-type(3) { 
-  --index: 3; 
-  --height: 3vh;
-  --timeIndex: 3s; 
-}
-main div ul:first-of-type li:nth-of-type(4) { 
-  --index: 4; 
-  --height: 4vh;
-  --timeIndex: 4s; 
-}
-main div ul:first-of-type li:nth-of-type(5) { 
-  --index: 5; 
-  --height: 5vh;
-  --timeIndex: 5s; 
-}
-main div ul:first-of-type li:nth-of-type(6) { 
-  --index: 6; 
-  --height: 6vh;
-  --timeIndex: 6s; 
-}
-main div ul:first-of-type li:nth-of-type(7) { 
-  --index: 7; 
-  --height: 7vh;
-  --timeIndex: 7s; 
-}
-main div ul:first-of-type li:nth-of-type(8) { 
-  --index: 8; 
-  --height: 8vh;
-  --timeIndex: 8s; 
-}
-
-/* Bedieningspaneel */
-main form {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  place-content: center;
-  width: 40%;
-  min-width: 10em;
-  height: 5em;
+  height: 10em;
+  width: 10em;
+  align-self: center;
+  justify-self: center;
   background-color: var(--red);
-  margin-left: auto;
-  margin-right: auto;
-  bottom: 0;
+  border-radius: 2em;
+}
+
+main div:nth-child(1) {
+  background:
+  radial-gradient(
+    at 50% -20%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.3) 40%,
+    transparent 40%
+  ),
+  repeating-linear-gradient(
+      -45deg,
+      #49AF2C 90%,
+      #7AE84F 50%,
+      #49AF2C,
+      #7AE84F,
+      #49AF2C,
+      #7AE84F,
+      #49AF2C,
+      #7AE84F
+    );
+  background-size:
+    350% 100%,
+    cover;
+  background-position: center;
+
+  box-shadow:
+    inset .5em .5em 1em #fff6,
+    inset -.5em -.5em 1em #7AE84F;
+}
+
+main div:nth-child(1):before {
+  position: absolute;
+  content: '🕽';
+  filter: invert(1);
+  top: .90em;
   left: 0;
   right: 0;
-  text-align: center;
+  font-size: 5em;
+  transform: rotate(90deg);
 }
 
-main form label {
-  margin-top: 1em;
-  margin-bottom: 1em;
+main div:nth-child(2) {
+  position: relative;
+  background-image:
+    repeating-radial-gradient(
+      rgb(44,61,77) 60%,
+      rgb(52,67,82) 80%,
+      rgb(98,120,148) 20%,
+      rgb(31,49,63) 60%,
+      rgb(98,120,148) 20%
+    )
+  ;
+  box-shadow:
+    0em .5em .5em 0em rgb(0, 0, 0);
 }
 
-/* ------------ Rails ------------ */
-
-main div:last-of-type {
-  height: 1em;
-  width: 100%;
-  background-color: var(--dark-wood);
-  background-image: radial-gradient(
-    var(--wood) 30%,
-    transparent 24%
-  );
-  background-size: 1.75em 1.75em;
-}
-
-/* ------------ Stars ------------ */
-
-main div ul:last-of-type li {
-  --length: 10;
-  width: .75em;
-  height: .75em;
-  background-color: var(--star);
-  animation-name: flickering;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  background-image: radial-gradient(
-    at top right,
-    var(--night) 30%,
-    transparent 1%
-  ),
+main div:nth-child(2):before {
+  position: absolute;
+  content: '';
+  inset: 0;
+  border-radius: inherit;
+  background-image:
   radial-gradient(
-    at top left,
-    var(--night) 30%,
-    transparent 1%
+    transparent 2.6em,
+    rgba(255, 255, 255, 1) 20%,
+    #666 10%
   ),
-  radial-gradient(
-    at bottom left,
-    var(--night) 30%,
-    transparent 1%
-  ),
-  radial-gradient(
-    at bottom right,
-    var(--night) 30%,
-    transparent 1%
-  );
-  background-size: 100%, 100%;
+  conic-gradient(
+    from -100deg,
+    black,
+    #666,
+    black,
+    #666,
+    black
+  )
+  ;
+  -webkit-mask:
+		radial-gradient(
+			transparent 2em,
+			rgba(255, 255, 255, 1) 0
+	);
 }
 
-main div ul:last-of-type  li:nth-of-type(1) { 
-  animation-delay: 0.3s;
-  transform: translate( 
-    calc(13em * var(--index) / 3.7), 
-    calc(13em * var(--index) / 6.4) 
-  );
-  /* top:  calc(13em * var(--index) / 5);
-  left:  calc(13em * var(--index) / 5); */
-  --index: 1; 
-}
-main div ul:last-of-type  li:nth-of-type(2) { 
-  transform: translate( 
-    calc(13em * var(--index) / 2.8), 
-    calc(13em * var(--index) / 7.1) 
-  );
-  --index: 2; 
-  animation-delay: 0.5s;
-}
-main div ul:last-of-type  li:nth-of-type(3) { 
-  transform: translate( 
-    calc(13em * var(--index) / 1.2), 
-    calc(13em * var(--index) / 6.3) 
-  );
-  --index: 3; 
-  animation-delay: 0.7s;
-}
-main div ul:last-of-type  li:nth-of-type(4) { 
-  transform: translate( 
-    calc(13em * var(--index) / 2.7), 
-    calc(13em * var(--index) / 9.3) 
-  );
-  --index: 4; 
-  animation-delay: 1.2s;
-}
-main div ul:last-of-type  li:nth-of-type(5) { 
-  transform: translate( 
-    calc(13em * var(--index) / 4.9), 
-    calc(13em * var(--index) / 5.3) 
-  );
-  --index: 5; 
-  animation-delay: -1.2s;
-}
-main div ul:last-of-type  li:nth-of-type(6) { 
-  transform: translate( 
-    calc(13em * var(--index) / 2.8), 
-    calc(13em * var(--index) / 7.6) 
-  );
-  --index: 6; 
-  animation-delay: -0.8s;
-}
-main div ul:last-of-type  li:nth-of-type(7) { 
-  transform: translate( 
-    calc(13em * var(--index) / 2.6), 
-    calc(13em * var(--index) / 5.4) 
-  );
-  --index: 7; 
-  animation-delay: -0.5s;
-}
-main div ul:last-of-type  li:nth-of-type(8) { 
-  transform: translate( 
-    calc(13em * var(--index) / 2.8), 
-    calc(13em * var(--index) / 9.4) 
-  );
-  --index: 8; 
-  animation-delay: -0.4s;
-}
-main div ul:last-of-type  li:nth-of-type(9) { 
-  transform: translate( 
-    calc(13em * var(--index) / 2.4), 
-    calc(13em * var(--index) / 14) 
-  );
-  --index: 9; 
-  animation-delay: -0.3s;
-}
-main div ul:last-of-type  li:nth-of-type(10) { 
-  transform: translate( 
-    calc(13em * var(--index) / 18.2), 
-    calc(13em * var(--index) / 9.3) 
-  );
-  --index: 10; 
-  animation-delay: -0.7s;
-}
-
-/* ------------ Button stuff ------------ */
-
-main form:has(label:first-of-type input:checked) ~ div:first-of-type {
-  background-image: linear-gradient(  
-    var(--day2),
-    var(--day)
-  );
-}
-
-main form:has(label:nth-of-type(2) input:checked) ~ div:first-of-type {
-  background-image: linear-gradient(  
-  var(--night),
-  var(--night2)
-  );
-  background-size: 100% 200%;
-}
-
-main:has(label:nth-of-type(2) input:checked) {
-  background-color: var(--night-grass);
-}
-
-main form:has(label:nth-of-type(1) input:checked) ~ div:first-of-type ul:nth-of-type(1) {
-  display: block;
-}
-
-main form:has(label:nth-of-type(2) input:checked) ~ div:first-of-type ul:nth-of-type(2) {
-  display: block;
-}
-
-main form:has(label:last-of-type input:checked) ~ div:first-of-type {
-  background-color: purple;
-}
-
-/* ------------ Keyframes ------------ */
-
-@keyframes flickering {
-  0% {
-    opacity: calc( var(--index) * 3.14 / var(--length));
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: calc( var(--index) * 3.14 / var(--length));
-  }
-}
-
-@keyframes fromLeft {
-  0% {
-    left: -20%;
-  }
-  100% {
-    left: 150%;
-  }
-}
-
-@keyframes fromRight {
-  0% {
-    left: 150%;
-  }
-  100% {
-    left: -50%;
-  }
+main div:nth-child(2):after {
+  position: absolute;
+  content: '';
+  inset:0;
+	background-image:
+		linear-gradient(
+			#eee,
+			#bbb
+		);
+	
+	-webkit-mask:
+		radial-gradient(
+			transparent 3.2em,
+			red 0
+		);
+	
+	border-radius:inherit;
 }
