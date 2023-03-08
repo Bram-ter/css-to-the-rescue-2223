@@ -109,12 +109,50 @@ main div:nth-child(1):before {
 main div:nth-child(2) {
   position: relative;
   background-image:
+    radial-gradient(
+      at 60% 70%,
+        rgba(255, 255, 255, 0.687) 2%,
+        rgba(255, 255, 255, 0.301) 20%,
+        transparent 0
+      ),
+
     repeating-radial-gradient(
-      rgb(44,61,77) 60%,
-      rgb(52,67,82) 80%,
-      rgb(98,120,148) 20%,
-      rgb(31,49,63) 60%,
-      rgb(98,120,148) 20%
+      rgb(98,120,148) 0%,
+      rgb(78,104,131) 10%,
+      rgb(47, 63, 81) 12%,
+      rgb(52,67,82) 13%,
+      transparent 14%,
+      transparent 16%,
+      transparent 18%,
+      transparent 19%,
+      transparent 21%,
+      rgb(47, 63, 81) 23%,
+      rgb(78,104,131) 25%,
+      rgb(52,67,82) 26%,
+      rgb(44,61,77) 27%
+    ),
+
+    conic-gradient(
+      from -5deg,
+      transparent 0%,
+      transparent 79%,
+      rgba(255, 255, 255, 0.550) 20%
+    ),
+
+    repeating-radial-gradient(
+      rgb(98,120,148) 0%,
+      rgb(78,104,131) 10%,
+      rgb(47, 63, 81) 12%,
+      rgb(52,67,82) 13%,
+      rgb(98,120,148) 14%,
+      rgb(44,61,77) 16%,
+      rgb(31,49,63) 18%,
+      rgb(31,49,63) 19%,
+      rgb(78,104,131) 21%,
+      rgb(47, 63, 81) 23%,
+      rgb(78,104,131) 25%,
+      rgb(52,67,82) 26%,
+      rgb(44,61,77) 27%
     )
   ;
   box-shadow:
@@ -129,16 +167,15 @@ main div:nth-child(2):before {
   background-image:
   radial-gradient(
     transparent 2.6em,
-    rgba(255, 255, 255, 1) 20%,
-    #666 10%
+    hsl(0, 0%, 16%) 20%
   ),
   conic-gradient(
     from -100deg,
-    black,
-    #666,
-    black,
-    #666,
-    black
+    hsl(0, 0%, 0%),
+    hsl(0, 0%, 40%),
+    hsl(0, 0%, 0%),
+    hsl(240, 0%, 23%),
+    hsl(0, 0%, 0%)
   )
   ;
   -webkit-mask:
@@ -151,18 +188,17 @@ main div:nth-child(2):before {
 main div:nth-child(2):after {
   position: absolute;
   content: '';
+  border-radius:inherit;
   inset:0;
 	background-image:
 		linear-gradient(
-			#eee,
-			#bbb
+			hsl(0, 0%, 93%),
+			hsl(0, 0%, 53%)
 		);
 	
 	-webkit-mask:
 		radial-gradient(
 			transparent 3.2em,
-			red 0
+			hsl(0, 100%, 50%) 0
 		);
-	
-	border-radius:inherit;
 }
