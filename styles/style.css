@@ -69,10 +69,11 @@ main div ul:first-of-type li {
   height: 2.8em;
   background-color: #fff;
   border-radius: 100px;
-  animation-duration: calc(var(--timeIndex) + 7s);
+  animation-duration: calc(var(--timeIndex) + 30s);
   animation-iteration-count: infinite;
-  margin-top: calc(var(--height) * 4.4);
-  animation-delay: calc(var(--timeIndex) + 2s);
+  margin-top: calc(var(--height) * 7);
+  animation-timing-function: cubic-bezier(calc(var(--index) / 3), calc(var(--index) / 8), var(--index), calc(var(--index) / 11));
+  animation-delay: calc(var(--timeIndex) + 3s);
 }
 
 main div ul:first-of-type li:nth-of-type(1n) {
@@ -107,35 +108,43 @@ main div ul:first-of-type li:after {
   border-radius: 100%;
 }
 
-main div ul:first-of-type li:nth-of-type(1) { 
+main div ul:first-of-type li:nth-of-type(1) {
+  --index: 1; 
   --height: 1vh;
   --timeIndex: 1s; 
 }
-main div ul:first-of-type li:nth-of-type(2) { 
+main div ul:first-of-type li:nth-of-type(2) {
+  --index: 2;  
   --height: 2vh;
   --timeIndex: 2s; 
 }
 main div ul:first-of-type li:nth-of-type(3) { 
+  --index: 3; 
   --height: 3vh;
   --timeIndex: 3s; 
 }
 main div ul:first-of-type li:nth-of-type(4) { 
+  --index: 4; 
   --height: 4vh;
   --timeIndex: 4s; 
 }
 main div ul:first-of-type li:nth-of-type(5) { 
+  --index: 5; 
   --height: 5vh;
   --timeIndex: 5s; 
 }
 main div ul:first-of-type li:nth-of-type(6) { 
+  --index: 6; 
   --height: 6vh;
   --timeIndex: 6s; 
 }
 main div ul:first-of-type li:nth-of-type(7) { 
+  --index: 7; 
   --height: 7vh;
   --timeIndex: 7s; 
 }
 main div ul:first-of-type li:nth-of-type(8) { 
+  --index: 8; 
   --height: 8vh;
   --timeIndex: 8s; 
 }
