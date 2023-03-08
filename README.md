@@ -9,10 +9,10 @@ Each week I made some experimented with the ways I can use CSS to create fun stu
 In these html files you can see the little experiments I did for each week.
 
 ### Week 1
-[The first week: 3D, variable fonts and variables](https://bram-ter.github.io/css-to-the-rescue-2223/firstweek.html)
+[The first week: 3D, variable fonts and variables](https://bram-ter.github.io/css-to-the-rescue-2223/firstweek.html){target="_blank"}
 
 ### Week 2
-[The second week: Making formulas through CSS variables and little gradients things ](https://bram-ter.github.io/css-to-the-rescue-2223/secondweek.html)
+[The second week: Making formulas through CSS variables and little gradients things ](https://bram-ter.github.io/css-to-the-rescue-2223/secondweek.html){target="_blank"}
 
 ### Week 3
-[The third week: Single div icons illustrations](https://bram-ter.github.io/css-to-the-rescue-2223/thirdweek.html)
+[The third week: Single div icons illustrations](https://bram-ter.github.io/css-to-the-rescue-2223/thirdweek.html){target="_blank"}
