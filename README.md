@@ -1,18 +1,18 @@
 # CSS to the Rescue @cmda-minor-web 2022 - 2023
 
-Welcome to my CSS to the rescue repository for the minor-web.
+Welkom in mijn CSS to the Rescue repository voor de minor web!
 
-Each week I made some experimented with the ways I can use CSS to create fun stuff.
+Elke week heb ik gewerkt aan kleine testjes om de manieren waarin ik CSS kan gebruiken uit te proberen.
 
 ## Experiments
 
-In these html files you can see the little experiments I did for each week.
+In onderstaande html bestanden kan je zien waar ik elke week mee heb geëxperimenteerd.
 
 ### Week 1
-[The first week: 3D, variable fonts and variables](https://bram-ter.github.io/css-to-the-rescue-2223/firstweek.html)
+[De eerste week: 3D, variable fonts en variables](https://bram-ter.github.io/css-to-the-rescue-2223/firstweek.html)
 
 ### Week 2
-[The second week: Making formulas through CSS variables and little gradients things ](https://bram-ter.github.io/css-to-the-rescue-2223/secondweek.html)
+[De tweede week: CSS formules + gebruik hiervan in animaties ](https://bram-ter.github.io/css-to-the-rescue-2223/secondweek.html)
 
 ### Week 3
-[The third week: Single div icons illustrations](https://bram-ter.github.io/css-to-the-rescue-2223/thirdweek.html)
+[De derde week: Single div iconen](https://bram-ter.github.io/css-to-the-rescue-2223/thirdweek.html)
