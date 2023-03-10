@@ -66,6 +66,11 @@ main div {
   border-radius: 2em;
 }
 
+main div:before,
+main div:after {
+  content: '';
+}
+
 main div:nth-child(1) {
   background:
   radial-gradient(
@@ -108,10 +113,48 @@ main div:nth-child(1):before {
 
 main div:nth-child(2) {
   position: relative;
+  rotate: -45deg;
+  border-radius: 50%;
   background-image:
     radial-gradient(
-      at 60% 70%,
-        rgba(255, 255, 255, 0.687) 2%,
+        rgba(255, 255, 255, 0.687) 10%,
+        rgba(255, 255, 255, 0.578) 13%,
+        transparent 25%
+      ),
+      
+    radial-gradient(
+        rgba(255, 255, 255, 0.687) 5%,
+        rgba(255, 255, 255, 0.578) 10%,
+        transparent 25%
+      ),
+
+    radial-gradient(
+        rgba(255, 255, 255, 0.687) 5%,
+        rgba(255, 255, 255, 0.578) 10%,
+        transparent 25%
+      ),
+
+    radial-gradient(
+        rgba(255, 255, 255, 0.687) 5%,
+        rgba(255, 255, 255, 0.578) 12%,
+        transparent 25%
+      ),
+
+    radial-gradient(
+        rgba(255, 255, 255, 0.687) 5%,
+        rgba(255, 255, 255, 0.578) 15%,
+        transparent 25%
+      ),
+
+    radial-gradient(
+        rgba(255, 255, 255, 0.687) 5%,
+        rgba(255, 255, 255, 0.578) 20%,
+        transparent 25%
+      ),
+
+    radial-gradient(
+      at 50% 72%,
+        rgba(255, 255, 255, 0.687) 10%,
         rgba(255, 255, 255, 0.301) 20%,
         transparent 0
       ),
@@ -121,11 +164,11 @@ main div:nth-child(2) {
       rgb(78,104,131) 10%,
       rgb(47, 63, 81) 12%,
       rgb(52,67,82) 13%,
+      rgb(98,120,148) 14%,
       transparent 14%,
-      transparent 16%,
       transparent 18%,
       transparent 19%,
-      transparent 21%,
+      transparent 23%,
       rgb(47, 63, 81) 23%,
       rgb(78,104,131) 25%,
       rgb(52,67,82) 26%,
@@ -133,9 +176,9 @@ main div:nth-child(2) {
     ),
 
     conic-gradient(
-      from -5deg,
+      from 35deg,
       transparent 0%,
-      transparent 79%,
+      transparent 80%,
       rgba(255, 255, 255, 0.550) 20%
     ),
 
@@ -155,13 +198,35 @@ main div:nth-child(2) {
       rgb(44,61,77) 27%
     )
   ;
-  box-shadow:
-    0em .5em .5em 0em rgb(0, 0, 0);
+  background-size:
+    17% 12%,
+    5% 4%,
+    3% 2%,
+    5% 3%,
+    7% 5%,
+    18% 13%,
+    100% 70%,
+    100% 100%,
+    100% 100%,
+    cover
+  ;
+  background-position: 
+    50% 36%,
+    50% 44%,
+    50% 47.5%,
+    50% 55.5%,
+    50% 58.3%,
+    50% 67%,
+    60% 60%,
+    100% 100%,
+    100% 100%,
+    100% 100%
+  ;
+  background-repeat: no-repeat;
 }
 
 main div:nth-child(2):before {
   position: absolute;
-  content: '';
   inset: 0;
   border-radius: inherit;
   background-image:
@@ -187,8 +252,8 @@ main div:nth-child(2):before {
 
 main div:nth-child(2):after {
   position: absolute;
-  content: '';
-  border-radius:inherit;
+  rotate: 45deg;
+  border-radius: 2em;
   inset:0;
 	background-image:
 		linear-gradient(
@@ -199,6 +264,49 @@ main div:nth-child(2):after {
 	-webkit-mask:
 		radial-gradient(
 			transparent 3.2em,
-			hsl(0, 100%, 50%) 0
+			hsl(0, 100%, 50%) 0%
+		);
+
+  box-shadow:
+    0em .5em .5em 0em rgb(0, 0, 0);
+}
+
+
+main div:nth-child(3) {
+  overflow: hidden;
+  background-image:
+  repeating-radial-gradient(
+    rgb(211, 211, 211) 10%,
+    rgb(149, 149, 149) 20%
+  );
+}
+
+main div:nth-child(3):before {
+  position: absolute;
+  content: '🌎';
+  font-size: 8em;
+  top: 0;
+  left: .13em;
+  border-radius: inherit;
+  /* -webkit-mask:
+		radial-gradient(
+			transparent 3.4em,
+			rgba(255, 255, 255, 1) 0
+	); */
+}
+
+main div:nth-child(3):after {
+  position: absolute;
+  border-radius: inherit;
+  inset: 0;
+  background-image:
+		linear-gradient(
+    hsl(0, 0%, 79%),
+    hsl(0, 0%, 96%)
+    );
+    -webkit-mask:
+		radial-gradient(
+			transparent 4.5em,
+			blue 0%
 		);
 }
